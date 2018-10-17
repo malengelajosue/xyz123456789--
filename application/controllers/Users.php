@@ -40,7 +40,8 @@ class Users extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('users/users_list', $data);
+        $section=$this->load->view('users/users_list', $data,true);
+         $this->load->view('template/base',['section'=>$section]);
     }
 
     public function read($id) 
@@ -59,7 +60,8 @@ class Users extends CI_Controller
 		'mgr_empno' => $row->mgr_empno,
 		'general_m' => $row->general_m,
 	    );
-            $this->load->view('users/users_read', $data);
+            $section=$this->load->view('users/users_read', $data,true);
+             $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('users'));
@@ -82,7 +84,8 @@ class Users extends CI_Controller
 	    'mgr_empno' => set_value('mgr_empno'),
 	    'general_m' => set_value('general_m'),
 	);
-        $this->load->view('users/users_form', $data);
+        $section=$this->load->view('users/users_form', $data,true);
+         $this->load->view('template/base',['section'=>$section]);
     }
     
     public function create_action() 
@@ -129,7 +132,8 @@ class Users extends CI_Controller
 		'mgr_empno' => set_value('mgr_empno', $row->mgr_empno),
 		'general_m' => set_value('general_m', $row->general_m),
 	    );
-            $this->load->view('users/users_form', $data);
+            $section=$this->load->view('users/users_form', $data,true);
+             $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('users'));

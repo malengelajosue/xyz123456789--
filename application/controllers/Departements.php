@@ -40,7 +40,9 @@ class Departements extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('departements/departements_list', $data);
+        $section=$this->load->view('departements/departements_list', $data,true);
+        $this->load->view('template/base',['section'=>$section]);
+        
     }
 
     public function read($id) 
@@ -52,7 +54,8 @@ class Departements extends CI_Controller
 		'name' => $row->name,
 		'description' => $row->description,
 	    );
-            $this->load->view('departements/departements_read', $data);
+            $section=$this->load->view('departements/departements_read', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('departements'));
@@ -68,7 +71,8 @@ class Departements extends CI_Controller
 	    'name' => set_value('name'),
 	    'description' => set_value('description'),
 	);
-        $this->load->view('departements/departements_form', $data);
+        $section=$this->load->view('departements/departements_form', $data,true);
+        $this->load->view('template/base',['section'=>$section]);
     }
     
     public function create_action() 
@@ -101,7 +105,8 @@ class Departements extends CI_Controller
 		'name' => set_value('name', $row->name),
 		'description' => set_value('description', $row->description),
 	    );
-            $this->load->view('departements/departements_form', $data);
+            $section=$this->load->view('departements/departements_form', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('departements'));

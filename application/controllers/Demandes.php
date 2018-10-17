@@ -40,7 +40,8 @@ class Demandes extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('demandes/demandes_list', $data);
+        $section=$this->load->view('demandes/demandes_list', $data,true);
+        $this->load->view('template/base',['section'=>$section]);
     }
 
     public function read($id) 
@@ -57,7 +58,8 @@ class Demandes extends CI_Controller
 		'state' => $row->state,
 		'create_date' => $row->create_date,
 	    );
-            $this->load->view('demandes/demandes_read', $data);
+            $section=$this->load->view('demandes/demandes_read', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('demandes'));
@@ -78,7 +80,8 @@ class Demandes extends CI_Controller
 	    'state' => set_value('state'),
 	    'create_date' => set_value('create_date'),
 	);
-        $this->load->view('demandes/demandes_form', $data);
+        $section=$this->load->view('demandes/demandes_form', $data,true);
+        $this->load->view('template/base',['section'=>$section]);
     }
     
     public function create_action() 
@@ -121,7 +124,8 @@ class Demandes extends CI_Controller
 		'state' => set_value('state', $row->state),
 		'create_date' => set_value('create_date', $row->create_date),
 	    );
-            $this->load->view('demandes/demandes_form', $data);
+            $section=$this->load->view('demandes/demandes_form', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('demandes'));

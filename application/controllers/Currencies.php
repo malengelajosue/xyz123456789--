@@ -40,7 +40,8 @@ class Currencies extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('currencies/currencies_list', $data);
+        $section=$this->load->view('currencies/currencies_list', $data,true);
+         $this->load->view('template/base',['section'=>$section]);
     }
 
     public function read($id) 
@@ -54,7 +55,8 @@ class Currencies extends CI_Controller
 		'amount' => $row->amount,
 		'update_date' => $row->update_date,
 	    );
-            $this->load->view('currencies/currencies_read', $data);
+            $section=$this->load->view('currencies/currencies_read', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('currencies'));
@@ -72,7 +74,8 @@ class Currencies extends CI_Controller
 	    'amount' => set_value('amount'),
 	    'update_date' => set_value('update_date'),
 	);
-        $this->load->view('currencies/currencies_form', $data);
+        $section=$this->load->view('currencies/currencies_form', $data,true);
+        $this->load->view('template/base',['section'=>$section]);
     }
     
     public function create_action() 
@@ -109,7 +112,8 @@ class Currencies extends CI_Controller
 		'amount' => set_value('amount', $row->amount),
 		'update_date' => set_value('update_date', $row->update_date),
 	    );
-            $this->load->view('currencies/currencies_form', $data);
+            $section=$this->load->view('currencies/currencies_form', $data,true);
+            $this->load->view('template/base',['section'=>$section]);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('currencies'));
