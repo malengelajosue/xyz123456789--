@@ -45,8 +45,8 @@
             </div>
             <div class="box-footer clearfix">
                 <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
-                <button type="submit" class="btn btn-sm btn-info btn-flat"><?php echo $button ?></button> 
-                <a href="<?php echo site_url('demandes') ?>" class="btn btn-sm btn-default flat">Annuler</a>
+                <button type="submit" class="btn  btn-info btn-flat"><?php echo $button ?></button> 
+                <a href="<?php echo site_url('demandes') ?>" class="btn  btn-default flat">Annuler</a>
             </div>
         </form>
             </div>

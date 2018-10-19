@@ -221,7 +221,7 @@ class Users extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "First Name");
 	xlsWriteLabel($tablehead, $kolomhead++, "Last Name");
 	xlsWriteLabel($tablehead, $kolomhead++, "Login");
-	xlsWriteLabel($tablehead, $kolomhead++, "Pass");
+	
 	xlsWriteLabel($tablehead, $kolomhead++, "Id Type");
 	xlsWriteLabel($tablehead, $kolomhead++, "Id Departement");
 	xlsWriteLabel($tablehead, $kolomhead++, "Mgr Empno");
@@ -236,7 +236,7 @@ class Users extends CI_Controller
 	    xlsWriteLabel($tablebody, $kolombody++, $data->first_name);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->last_name);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->login);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->pass);
+	 
 	    xlsWriteNumber($tablebody, $kolombody++, $data->id_type);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->id_departement);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->mgr_empno);

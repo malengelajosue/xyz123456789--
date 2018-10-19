@@ -158,8 +158,7 @@ class Currencies extends CI_Controller
     {
 	$this->form_validation->set_rules('name', 'name', 'trim|required');
 	$this->form_validation->set_rules('description', 'description', 'trim|required');
-	$this->form_validation->set_rules('amount', 'amount', 'trim|required');
-	$this->form_validation->set_rules('update_date', 'update date', 'trim|required');
+	
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

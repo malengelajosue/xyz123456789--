@@ -65,22 +65,7 @@ class Line_currencies extends CI_Controller
         }
     }
 
-    public function create() 
-    {
-        $data = array(
-            'button' => 'Create',
-            'action' => site_url('line_currencies/create_action'),
-	    'id' => set_value('id'),
-	    'id_currency' => set_value('id_currency'),
-	    'id_demande' => set_value('id_demande'),
-	    'amount' => set_value('amount'),
-	    'demande_type' => set_value('demande_type'),
-	    'create_date' => set_value('create_date'),
-	);
-       $section=$this->load->view('line_currencies/line_currencies_form', $data,true);
-       $this->load->view('template/base',['section'=>$section]);
-    }
-    
+
     public function create_action() 
     {
         $this->_rules();
@@ -146,19 +131,7 @@ class Line_currencies extends CI_Controller
         }
     }
     
-    public function delete($id) 
-    {
-        $row = $this->Line_currencies_model->get_by_id($id);
 
-        if ($row) {
-            $this->Line_currencies_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('line_currencies'));
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('line_currencies'));
-        }
-    }
 
     public function _rules() 
     {

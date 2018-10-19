@@ -10,10 +10,10 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        
+
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <?php echo anchor(site_url('demandes/create'), 'Creer une demande', 'class="btn btn-sm btn-info btn-flat"'); ?>
+                <a href="demandes/create"><button class='btn btn-default '><i class='fa fa-plus'></i></button></a>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">
@@ -77,20 +77,19 @@
             }
             ?>
         </table>
-          <div class="box-footer clearfix">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="#" class="btn btn-sm btn-info btn-flat pull-left">Total Record : <?php echo $total_rows ?></a>
-                <?php echo anchor(site_url('demandes/excel'), 'Excel', 'class="btn btn-sm btn-default btn-flat "'); ?>
-            </div>
-            <div class="col-md-6 text-right">
-                <?php echo $pagination ?>
+        <div class="box-footer clearfix">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#" class="btn btn btn-info btn-flat pull-left">Total: <?php echo $total_rows ?></a>
+                    <a href="demandes/excel"><button class='btn btn-success  btn-flat'>Telecharger &nbsp;<i class='fa fa-download'></i></button></a>
+
+                </div>
+                <div class="col-md-6 text-right">
+                    <?php echo $pagination ?>
+                </div>
             </div>
         </div>
-          </div>
     </div>
     <!-- /.box-body -->
-  
-        
-    </div>
-    <!-- /.box-footer -->
+</div>
+<!-- /.box-footer -->
