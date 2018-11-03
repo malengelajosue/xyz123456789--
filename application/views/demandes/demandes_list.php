@@ -43,7 +43,9 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-                <th>Id Users</th>
+                <th>Name</th>
+                <th>Departement</th>
+                
                 <th>Demande No</th>
                 <th>Suject</th>
                 <th>Description</th>
@@ -57,6 +59,7 @@
                 <tr>
                     <td width="80px"><?php echo ++$start ?></td>
                     <td><?php echo $demandes->id_users ?></td>
+                    <td><?php echo $demandes->id_departements ?></td>
                     <td><?php echo $demandes->demande_no ?></td>
                     <td><?php echo $demandes->suject ?></td>
                     <td><?php echo $demandes->description ?></td>

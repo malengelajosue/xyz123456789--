@@ -7,6 +7,7 @@ class Users_model extends CI_Model
 {
 
     public $table = 'users';
+    public $v_table = 'v_users';
     public $id = 'id';
     public $login = 'login';
     public $order = 'DESC';
@@ -20,20 +21,20 @@ class Users_model extends CI_Model
     function get_all()
     {
         $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->v_table)->result();
     }
 
     // get data by id
     function get_by_id($id)
     {
         $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        return $this->db->get($this->v_table)->row();
     }
     // get data by username
     function get_by_login($login)
     {
         $this->db->where($this->login, $login);
-        return $this->db->get($this->table)->row();
+        return $this->db->get($this->v_table)->row();
     }
     
     // get total rows
@@ -66,7 +67,7 @@ class Users_model extends CI_Model
 	$this->db->or_like('mgr_empno', $q);
 	$this->db->or_like('general_m', $q);
 	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->v_table)->result();
     }
 
     // insert data

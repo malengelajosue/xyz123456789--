@@ -72,7 +72,7 @@
                  
                     
                   <?=$_SESSION['user']->first_name .' '.$_SESSION['user']->last_name ?>
-                  <small>Department:</small>
+                  <small>Department:<?=$_SESSION['user']->id_departement ?></small>
                 </p>
               </li>
               <!-- Menu Body -->

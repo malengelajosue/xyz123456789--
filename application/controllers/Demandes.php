@@ -91,14 +91,22 @@ class Demandes extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            //id de l'utilisateur
+            $id_users=$this->session->userdata('user');
+            $id_users=$id_users->id;
+            
+            //numero de la demande 
+            $demande_no= date_timestamp_get(date_create());
+            //etat de la requete
+            $state="0";
             $data = array(
-		'id_users' => $this->input->post('id_users',TRUE),
-		'demande_no' => $this->input->post('demande_no',TRUE),
+		'id_users' =>$id_users,
+		'demande_no' => $demande_no,
 		'suject' => $this->input->post('suject',TRUE),
 		'description' => $this->input->post('description',TRUE),
 		'cost' => $this->input->post('cost',TRUE),
-		'state' => $this->input->post('state',TRUE),
-		'create_date' => $this->input->post('create_date',TRUE),
+		'state' => $state,
+	
 	    );
 
             $this->Demandes_model->insert($data);
@@ -171,13 +179,11 @@ class Demandes extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('id_users', 'id users', 'trim|required');
-	$this->form_validation->set_rules('demande_no', 'demande no', 'trim|required');
+	
+	
 	$this->form_validation->set_rules('suject', 'suject', 'trim|required');
 	$this->form_validation->set_rules('description', 'description', 'trim|required');
 	$this->form_validation->set_rules('cost', 'cost', 'trim|required');
-	$this->form_validation->set_rules('state', 'state', 'trim|required');
-	$this->form_validation->set_rules('create_date', 'create date', 'trim|required');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

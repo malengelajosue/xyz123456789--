@@ -7,6 +7,7 @@ class Demandes_model extends CI_Model
 {
 
     public $table = 'demandes';
+    public $v_table = 'v_demandes';
     public $id = 'id';
     public $order = 'DESC';
 
@@ -19,7 +20,7 @@ class Demandes_model extends CI_Model
     function get_all()
     {
         $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->v_table)->result();
     }
 
     // get data by id
@@ -55,7 +56,7 @@ class Demandes_model extends CI_Model
 	$this->db->or_like('state', $q);
 	$this->db->or_like('create_date', $q);
 	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->v_table)->result();
     }
 
     // insert data
